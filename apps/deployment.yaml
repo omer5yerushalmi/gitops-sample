@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-test-argo
+spec:
+  selector:
+    matchLabels:
+      app: sample-test-argo
+  template:
+    metadata:
+      labels:
+        app: sample-test-argo
+    spec:
+      containers:
+      - name: sample-test-argo
+        image: piomin/sample-spring-kotlin:1.4.8
+        ports:
+        - containerPort: 8080
+          name: http
